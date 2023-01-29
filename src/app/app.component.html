@@ -1,0 +1,20 @@
+<div id="map" class="container"></div>
+
+<div class="modal" id="mdl" *ngIf="!moving">
+  <div class="container">
+    <div class="inContainer">
+      <app-intro *ngIf="selected == 0"></app-intro>
+      <app-segovia *ngIf="selected == 1"></app-segovia>
+      <app-dublin *ngIf="selected == 2"></app-dublin>
+      <app-iowa *ngIf="selected == 3"></app-iowa>
+      <app-madrid1 *ngIf="selected == 4"></app-madrid1>
+    </div>
+  </div>
+  <div class="footer">
+    <button (click)="back()" *ngIf="selected > 0">Back</button>
+    <button>Contact</button>
+    <button (click)="next()" *ngIf="locations.length - 1 > selected">
+      Forward
+    </button>
+  </div>
+</div>
