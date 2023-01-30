@@ -11,10 +11,84 @@
     </div>
   </div>
   <div class="footer">
-    <button (click)="back()" *ngIf="selected > 0">Back</button>
-    <button>Contact</button>
-    <button (click)="next()" *ngIf="locations.length - 1 > selected">
-      Forward
-    </button>
+    <p-button
+      class="button"
+      (click)="back()"
+      pTooltip="Go back"
+      [disabled]="selected <= 0"
+      icon="pi pi-arrow-circle-left"
+    ></p-button>
+    <p-button
+      class="button"
+      *ngIf="!playing"
+      pTooltip="Play song"
+      tooltipPosition="top"
+      (click)="playAudio()"
+      icon="pi pi-play"
+    >
+    </p-button>
+    <p-button
+      class="button"
+      *ngIf="playing"
+      pTooltip="Pause song"
+      tooltipPosition="top"
+      (click)="pauseAudio()"
+      icon="pi pi-pause"
+    >
+    </p-button>
+    <p-button
+      class="button"
+      pTooltip="Contact me"
+      tooltipPosition="top"
+      (click)="showContact = true"
+      icon="pi pi-phone"
+    ></p-button>
+    <p-button
+      class="button"
+      (click)="next()"
+      pTooltip="Go forward"
+      tooltipPosition="top"
+      [disabled]="locations.length - 1 <= selected"
+      icon="pi pi-arrow-circle-right"
+    >
+    </p-button>
   </div>
 </div>
+
+<p-dialog
+  header="Contact me"
+  [(visible)]="showContact"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <div class="centered">
+    <p>
+      <i class="pi pi-linkedin"></i>
+      <a target="_blank" href="https://www.linkedin.com/in/luis-de-benito/"
+        >Luis dB.P.</a
+      >
+    </p>
+    <p>
+      <i class="pi pi-envelope"></i>
+      <a target="_blank" href="mailTo:luisdebenito7@gmail.com"
+        >luisdebenito7@gmail.com</a
+      >
+    </p>
+
+    <p>
+      <i class="pi pi-youtube"></i>
+      <a
+        target="_blank"
+        href="https://www.youtube.com/channel/UCmuxk8hIRsCvwbSldWEwV9g"
+        >Do NOT click here</a
+      >
+    </p>
+    <p>
+      <i class="pi pi-instagram"></i>
+      <a target="_blank" href="https://www.instagram.com/luis.bq_/"
+        >@luis.bq_</a
+      >
+    </p>
+  </div>
+</p-dialog>

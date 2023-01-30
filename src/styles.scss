@@ -7,3 +7,63 @@ html {
   font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
     Ubuntu, sans-serif;
 }
+
+.img {
+  width: 100%;
+}
+
+.p-dialog .p-dialog-header {
+  border-bottom: 0 none;
+  background: #ffffff;
+  color: #343a40;
+  padding: 1.5rem;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+.p-dialog-title {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 800px) {
+  .p-dialog {
+    width: 95%;
+  }
+}
+@media (min-width: 800px) {
+  .p-dialog {
+    width: 50%;
+  }
+}
+
+.p-dialog {
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border: 0 none;
+}
+
+.p-dialog-content {
+  overflow-y: auto;
+  flex-grow: 1;
+  background-color: #ffffff;
+}
+
+.p-component-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  transition-duration: 0.2s;
+}
+
+.p-tooltip .p-tooltip-text {
+  background: #495057;
+  color: #ffffff;
+  padding: 0.75rem 0.75rem;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+.p-disabled,
+.p-component:disabled {
+  opacity: 0.6;
+}

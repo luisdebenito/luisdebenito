@@ -17,9 +17,36 @@ import { IndiaComponent } from './india/india.component';
 import { CorunaComponent } from './coruna/coruna.component';
 import { ForliComponent } from './forli/forli.component';
 
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { TooltipModule } from 'primeng/tooltip';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
-  declarations: [AppComponent, IntroComponent, SegoviaComponent, DublinComponent, IowaComponent, Madrid1Component, RusiaComponent, Madrid2Component, MaltaComponent, VeneciaComponent, SueciaComponent, GermanyComponent, IndiaComponent, CorunaComponent, ForliComponent],
-  imports: [BrowserModule],
+  declarations: [
+    AppComponent,
+    IntroComponent,
+    SegoviaComponent,
+    DublinComponent,
+    IowaComponent,
+    Madrid1Component,
+    RusiaComponent,
+    Madrid2Component,
+    MaltaComponent,
+    VeneciaComponent,
+    SueciaComponent,
+    GermanyComponent,
+    IndiaComponent,
+    CorunaComponent,
+    ForliComponent,
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    ButtonModule,
+    DialogModule,
+    TooltipModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

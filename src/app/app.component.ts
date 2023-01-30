@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '@env/environment';
 import * as mapboxgl from 'mapbox-gl';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,9 @@ export class AppComponent implements OnInit {
   private mapbox = mapboxgl as typeof mapboxgl;
   private map!: mapboxgl.Map;
   private style: string = 'mapbox://styles/mapbox/streets-v9';
+
+  public showContact: boolean = false;
+  private audio: any;
   constructor() {
     this.mapbox.accessToken = environment.mapBoxToken;
   }
@@ -20,11 +24,30 @@ export class AppComponent implements OnInit {
     this.map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
-      zoom: 11,
+      zoom: 10,
       center: [0, 0],
       interactive: false,
     });
     this.initMap();
+
+    this.audio = new Audio();
+    this.audio.src = '../../../assets/song.mp3';
+    this.audio.load();
+  }
+
+  public playing: boolean = false;
+  public playAudio() {
+    try {
+      this.audio.play();
+      this.playing = true;
+    } catch {}
+  }
+
+  public pauseAudio() {
+    try {
+      this.audio.pause();
+      this.playing = false;
+    } catch {}
   }
 
   private initMap(): void {
@@ -119,6 +142,8 @@ export class AppComponent implements OnInit {
         this.locations[this.selected].lt[0],
       ],
       essential: true,
+      speed: 1.3,
+      curve: 2.2,
     });
     let flag: boolean = false;
     this.map.on('moveend', () => {
