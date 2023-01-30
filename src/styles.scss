@@ -67,3 +67,81 @@ html {
 .p-component:disabled {
   opacity: 0.6;
 }
+
+h1.colors {
+  animation: color-change 1s infinite;
+}
+$colors: red, orange, yellow, green, blue, purple;
+
+@keyframes color-change {
+  0% {
+    color: red;
+  }
+  25% {
+    color: green;
+  }
+  50% {
+    color: orange;
+  }
+  75% {
+    color: blue;
+  }
+  100% {
+    color: purple;
+  }
+}
+
+h1.jumping {
+  animation: bounce 0.3s ease infinite alternate;
+  position: relative;
+  top: 20px;
+}
+
+@keyframes bounce {
+  100% {
+    top: -20px;
+    text-shadow: 0 1px #ccc, 0 2px #ccc, 0 3px #ccc, 0 4px #ccc, 0 5px #ccc,
+      0 6px #ccc, 0 7px #ccc, 0 8px #ccc, 0 9px #ccc,
+      0 50px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+
+h1.shadow {
+  animation: bounce 0.3s ease infinite alternate;
+}
+
+h1.typewriter {
+  animation: typing 1s infinite;
+  overflow: hidden;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+h1.shinny {
+  animation: shinny 1s infinite;
+}
+
+@keyframes shinny {
+  0% {
+    text-shadow: 20px 20px red;
+  }
+  25% {
+    text-shadow: 20px 20px green;
+  }
+  50% {
+    text-shadow: 20px 20px orange;
+  }
+  75% {
+    text-shadow: 20px 20px blue;
+  }
+  100% {
+    text-shadow: 20px 20px purple;
+  }
+}
