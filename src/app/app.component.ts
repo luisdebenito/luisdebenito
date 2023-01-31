@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
   public showContact: boolean = false;
   private audio: any;
-  public selected: number = 11;
+  public selected: number = 0;
   constructor() {
     this.mapbox.accessToken = environment.mapBoxToken;
   }
@@ -41,14 +41,14 @@ export class AppComponent implements OnInit {
     try {
       this.audio.play();
       this.playing = true;
-    } catch {}
+    } catch { }
   }
 
   public pauseAudio() {
     try {
       this.audio.pause();
       this.playing = false;
-    } catch {}
+    } catch { }
   }
 
   private initMap(): void {
