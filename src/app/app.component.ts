@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '@env/environment';
 import * as mapboxgl from 'mapbox-gl';
-import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +15,7 @@ export class AppComponent implements OnInit {
 
   public showContact: boolean = false;
   private audio: any;
-  public selected: number = 0;
+  public selected: number = 13;
   constructor() {
     this.mapbox.accessToken = environment.mapBoxToken;
   }
@@ -100,10 +99,10 @@ export class AppComponent implements OnInit {
       lt: [43.365726, -8.411274], //coruña
     },
     {
-      lt: [41.15907, -4.570329], //Santiuste
+      lt: [44.221248, 12.05746], //Forli
     },
     {
-      lt: [44.221248, 12.05746], //Forli
+      lt: [41.15907, -4.570329], //Santiuste
     },
     {
       lt: [40.429492, -3.713082], //madrid3
