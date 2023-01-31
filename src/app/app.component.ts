@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   public showContact: boolean = false;
   private audio: any;
-  public selected: number = 14;
+  public selected: number = 5;
   constructor() {
     this.mapbox.accessToken = environment.mapBoxToken;
   }
