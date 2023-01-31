@@ -22,6 +22,7 @@ import { DialogModule } from 'primeng/dialog';
 import { TooltipModule } from 'primeng/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SantiusteComponent } from './santiuste/santiuste.component';
+import { Madrid3Component } from './madrid3/madrid3.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { SantiusteComponent } from './santiuste/santiuste.component';
     CorunaComponent,
     ForliComponent,
     SantiusteComponent,
+    Madrid3Component,
   ],
   imports: [
     BrowserModule,
