@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
 
   public showContact: boolean = false;
   private audio: any;
+  public selected: number = 11;
   constructor() {
     this.mapbox.accessToken = environment.mapBoxToken;
   }
@@ -118,8 +119,6 @@ export class AppComponent implements OnInit {
         .addTo(this.map);
     });
   }
-
-  public selected: number = 0;
 
   public back(): void {
     if (this.selected <= 0) return;
