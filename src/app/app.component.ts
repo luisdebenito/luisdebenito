@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   title = 'ostoo';
   private mapbox = mapboxgl as typeof mapboxgl;
   private map!: mapboxgl.Map;
-  private style: string = 'mapbox://styles/mapbox/streets-v9';
+  private style: string = 'mapbox://styles/mapbox/navigation-night-v1';
 
   public showContact: boolean = false;
   private audio: any;
