@@ -23,6 +23,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SantiusteComponent } from './santiuste/santiuste.component';
 import { Madrid3Component } from './madrid3/madrid3.component';
+import { FinalComponent } from './final/final.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { Madrid3Component } from './madrid3/madrid3.component';
     ForliComponent,
     SantiusteComponent,
     Madrid3Component,
+    FinalComponent,
   ],
   imports: [
     BrowserModule,

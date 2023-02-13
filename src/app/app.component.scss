@@ -30,8 +30,8 @@
 
 .modal {
   background-color: #544008;
-  color: white;
-  border: 5px solid white;
+  color: #F0F7EE;
+  border: 5px solid #F0F7EE;
   border-radius: 20px;
   height: 98%;
   position: fixed;
@@ -51,11 +51,11 @@
     }
 
     ::ng-deep .button > button {
-      background-color: #a7aa15;
+      background-color: #E8FCCF;
       border-radius: 6px;
       border-width: 0;
       box-sizing: border-box;
-      color: #3c3e36;
+      color: #544008;
       outline: none;
       padding: 10px;
       font-size: 25px;

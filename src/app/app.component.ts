@@ -107,6 +107,9 @@ export class AppComponent implements OnInit {
     {
       lt: [40.429492, -3.713082], //madrid3
     },
+    {
+      lt: [0, 0],
+    },
   ];
 
   private drawLocations(): void {

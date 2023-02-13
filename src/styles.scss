@@ -14,7 +14,7 @@ html {
 
 .p-dialog .p-dialog-header {
   border-bottom: 0 none;
-  background: #ffffff;
+  background: #6c9a8b;
   color: #343a40;
   padding: 1.5rem;
   border-top-right-radius: 6px;
@@ -47,7 +47,7 @@ html {
 .p-dialog-content {
   overflow-y: auto;
   flex-grow: 1;
-  background-color: #ffffff;
+  background-color: #6c9a8b;
 }
 
 .p-component-overlay {
@@ -175,4 +175,8 @@ h1.shinny {
   100% {
     text-shadow: 0 0 black;
   }
+}
+
+a, a:visited{
+  color: black;
 }
