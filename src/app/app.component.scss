@@ -13,7 +13,58 @@
     cursor: pointer;
   }
 }
+::ng-deep .p-tabview-nav-content {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  overscroll-behavior: contain auto;
+}
 
+::ng-deep .p-tabview-nav {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  flex: 1 1 auto;
+}
+
+::ng-deep .p-tabview .p-tabview-nav li {
+  border-top: 1px solid white;
+  background-color: #544008;
+
+  span.spantitle {
+    margin: auto 10px;
+  }
+}
+
+::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background-color: #e8fccf;
+  color: #544008;
+}
+
+::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+::ng-deep.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  color: white;
+  padding: 1.25rem;
+  font-weight: 700;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition: box-shadow 0.2s;
+  margin: 0 0 -2px 0;
+}
+::ng-deep.p-tabview-nav-link {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;
+}
 .addRoom {
   position: fixed;
   right: 20px;
@@ -30,8 +81,8 @@
 
 .modal {
   background-color: #544008;
-  color: #F0F7EE;
-  border: 5px solid #F0F7EE;
+  color: #f0f7ee;
+  border: 5px solid #f0f7ee;
   border-radius: 20px;
   height: 98%;
   position: fixed;
@@ -40,34 +91,16 @@
 
   .footer {
     width: 100%;
-    height: 10%;
+    height: 7%;
     position: absolute;
     bottom: 0;
-    display: flex;
-    justify-content: space-between;
-
-    .button {
-      margin: 5px 3%;
-    }
-
-    ::ng-deep .button > button {
-      background-color: #E8FCCF;
-      border-radius: 6px;
-      border-width: 0;
-      box-sizing: border-box;
-      color: #544008;
-      outline: none;
-      padding: 10px;
-      font-size: 25px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+    margin: auto;
   }
 
   .container {
     width: 100%;
-    height: 89%;
-    max-height: 89%;
+    height: 90%;
+    max-height: 90%;
     overflow-y: auto;
     position: absolute;
     top: 0;
@@ -79,15 +112,24 @@
 }
 
 @media (max-width: 800px) {
+  ::ng-deep .p-tabview .p-tabview-nav li {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
   .inContainer {
     margin: 20px 3%;
   }
+
   .modal {
     width: 95%;
-    left: 1%;
+    left: 1.5%;
   }
 }
 @media (min-width: 800px) {
+  ::ng-deep .p-tabview .p-tabview-nav li {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
   .inContainer {
     margin: 20px 20%;
   }
@@ -98,11 +140,6 @@
   }
 }
 
-.centered {
-  text-align: left;
-  padding-left: 10px;
-  p > i {
-    margin: 15px;
-    font-size: 25px;
-  }
+.transp {
+  display: none;
 }

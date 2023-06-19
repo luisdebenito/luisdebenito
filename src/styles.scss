@@ -31,10 +31,20 @@ html {
   .p-dialog {
     width: 95%;
   }
+
+  .img.rounded {
+    width: 80%;
+    border-radius: 50%;
+  }
 }
 @media (min-width: 800px) {
   .p-dialog {
     width: 50%;
+  }
+
+  .img.rounded {
+    width: 40%;
+    border-radius: 50%;
   }
 }
 
@@ -177,6 +187,7 @@ h1.shinny {
   }
 }
 
-a, a:visited{
+a,
+a:visited {
   color: black;
 }

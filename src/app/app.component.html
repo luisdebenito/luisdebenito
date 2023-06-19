@@ -1,106 +1,22 @@
 <div id="map" class="container"></div>
 
-<div class="modal" id="mdl" *ngIf="!moving">
+<div class="modal" id="mdl" [ngClass]="moving ? 'transp' : ''">
   <div class="container">
     <div class="inContainer">
-      <app-intro *ngIf="selected == 0"></app-intro>
-      <app-segovia *ngIf="selected == 1"></app-segovia>
-      <app-dublin *ngIf="selected == 2"></app-dublin>
-      <app-iowa *ngIf="selected == 3"></app-iowa>
-      <app-madrid1 *ngIf="selected == 4"></app-madrid1>
-      <app-rusia *ngIf="selected == 5"></app-rusia>
-      <app-madrid2 *ngIf="selected == 6"></app-madrid2>
-      <app-malta *ngIf="selected == 7"></app-malta>
-      <app-venecia *ngIf="selected == 8"></app-venecia>
-      <app-suecia *ngIf="selected == 9"></app-suecia>
-      <app-germany *ngIf="selected == 10"></app-germany>
-      <app-india *ngIf="selected == 11"></app-india>
-      <app-coruna *ngIf="selected == 12"></app-coruna>
-      <app-forli *ngIf="selected == 13"></app-forli>
-      <app-santiuste *ngIf="selected == 14"></app-santiuste>
-      <app-madrid3 *ngIf="selected == 15"></app-madrid3>
-      <app-final *ngIf="selected == 16"></app-final>
+      <app-intro *ngIf="indexSelected == 0"></app-intro>
+      <app-segovia *ngIf="indexSelected == 1"></app-segovia>
+      <app-dublin *ngIf="indexSelected == 2"></app-dublin>
+      <app-iowa *ngIf="indexSelected == 3"></app-iowa>
     </div>
   </div>
   <div class="footer">
-    <p-button
-      class="button"
-      (click)="back()"
-      pTooltip="Go back"
-      [disabled]="selected <= 0"
-      icon="pi pi-arrow-circle-left"
-    ></p-button>
-    <p-button
-      class="button"
-      *ngIf="!playing"
-      pTooltip="Play song"
-      tooltipPosition="top"
-      (click)="playAudio()"
-      icon="pi pi-play"
-    >
-    </p-button>
-    <p-button
-      class="button"
-      *ngIf="playing"
-      pTooltip="Pause song"
-      tooltipPosition="top"
-      (click)="pauseAudio()"
-      icon="pi pi-volume-up pi-spin"
-    >
-    </p-button>
-    <p-button
-      class="button"
-      pTooltip="Contact me"
-      tooltipPosition="top"
-      (click)="showContact = true"
-      icon="pi pi-phone"
-    ></p-button>
-    <p-button
-      class="button"
-      (click)="next()"
-      pTooltip="Go forward"
-      tooltipPosition="top"
-      [disabled]="locations.length - 1 <= selected"
-      icon="pi pi-arrow-circle-right"
-    >
-    </p-button>
+    <p-tabView (onChange)="tabChanged($event)" [activeIndex]="indexSelected">
+      <p-tabPanel *ngFor="let item of headers">
+        <ng-template pTemplate="header">
+          <i class="pi pi-{{ item.icon }}"></i>
+          <span class="spantitle">{{ item.name }}</span>
+        </ng-template>
+      </p-tabPanel>
+    </p-tabView>
   </div>
 </div>
-
-<p-dialog
-  header="Contact me"
-  [(visible)]="showContact"
-  [modal]="true"
-  [draggable]="false"
-  [resizable]="false"
->
-  <div class="centered">
-    <p>
-      <i class="pi pi-linkedin"></i>
-      <a target="_blank" href="https://www.linkedin.com/in/luis-de-benito/"
-        >Luis dB.P.</a
-      >
-    </p>
-    <p>
-      <i class="pi pi-envelope"></i>
-      <a target="_blank" href="mailTo:luisdebenito7@gmail.com"
-        >luisdebenito7@gmail.com</a
-      >
-    </p>
-
-    <p>
-      <i class="pi pi-youtube"></i>
-      <a
-        target="_blank"
-        href="https://www.youtube.com/channel/UCmuxk8hIRsCvwbSldWEwV9g"
-        >Do NOT click here</a
-      >
-    </p>
-    <p>
-      <i class="pi pi-instagram"></i>
-      <a target="_blank" href="https://www.instagram.com/luis.bq_/"
-        >@luis.bq_</a
-      >
-    </p>
-  </div>
-</p-dialog>

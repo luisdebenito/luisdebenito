@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { environment } from '@env/environment';
 import * as mapboxgl from 'mapbox-gl';
+import { IntroComponent } from './intro/intro.component';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +14,29 @@ export class AppComponent implements OnInit {
   private map!: mapboxgl.Map;
   private style: string = 'mapbox://styles/mapbox/navigation-night-v1';
 
-  public showContact: boolean = false;
-  private audio: any;
-  public selected: number = 0;
   constructor() {
     this.mapbox.accessToken = environment.mapBoxToken;
   }
+
+
+  public indexSelected: number = 0;
+  public headers: { name: string, icon: string, lt: [number, number] }[] = [{
+    name: "Info", icon: "id-card", lt: [41.15907, -4.570329] //santiuste
+  }, {
+    name: "Education", icon: "user-plus", lt: [40.429561, -3.713232] //madrid
+  }, {
+    name: "Experience", icon: "star", lt: [45.508237, 12.267826] //venecia
+  }, {
+    name: "Music", icon: "volume-up", lt: [59.333226, 18.06828] //suecia
+  }, {
+    name: "Trips", icon: "map", lt: [59.891037, 30.319812]//rusia
+  }, {
+    name: "Code", icon: "code", lt: [49.373385, 10.180248] //rothenburg
+  }, {
+    name: "Sports", icon: "flag", lt: [40.951807, -4.105901]//segovia
+  }, {
+    name: "Misc", icon: "globe", lt: [17.469947, 78.422454]//india
+  }]
 
   ngOnInit(): void {
     this.map = new mapboxgl.Map({
@@ -29,26 +47,11 @@ export class AppComponent implements OnInit {
       interactive: false,
     });
     this.initMap();
-
-    this.audio = new Audio();
-    this.audio.src = '../../../assets/song.mp3';
-    this.audio.load();
+    setTimeout(() => {
+      this.flyTo(this.headers[0].lt)
+    }, 300)
   }
 
-  public playing: boolean = false;
-  public playAudio() {
-    try {
-      this.audio.play();
-      this.playing = true;
-    } catch { }
-  }
-
-  public pauseAudio() {
-    try {
-      this.audio.pause();
-      this.playing = false;
-    } catch { }
-  }
 
   private initMap(): void {
     this.drawLocations();
@@ -58,63 +61,9 @@ export class AppComponent implements OnInit {
     return '#' + Math.floor(Math.random() * 16777215).toString(16);
   }
 
-  public locations: { lt: [number, number] }[] = [
-    {
-      lt: [0, 0],
-    },
-    {
-      lt: [40.951807, -4.105901], //Segovia
-    },
-    {
-      lt: [53.338793, -6.281146], //dublin
-    },
-    {
-      lt: [42.025309, -93.626722], //iowa
-    },
-    {
-      lt: [40.429561, -3.713232], //madrid
-    },
-    {
-      lt: [59.891037, 30.319812], //rusia
-    },
-    {
-      lt: [40.4054236, -3.7012379], //madrid2
-    },
-    {
-      lt: [35.965471, 14.391707], //malta
-    },
-    {
-      lt: [45.508237, 12.267826], //venecia
-    },
-    {
-      lt: [59.333226, 18.06828], //Suecia
-    },
-    {
-      lt: [49.373385, 10.180248], //rotemburg
-    },
-    {
-      lt: [17.469947, 78.422454], //india
-    },
-    {
-      lt: [43.365726, -8.411274], //coruña
-    },
-    {
-      lt: [44.221248, 12.05746], //Forli
-    },
-    {
-      lt: [41.15907, -4.570329], //Santiuste
-    },
-    {
-      lt: [40.429492, -3.713082], //madrid3
-    },
-    {
-      lt: [0, 0],
-    },
-  ];
 
   private drawLocations(): void {
-    this.locations.forEach((loc) => {
-      if (loc.lt[0] == 0) return;
+    this.headers.forEach((loc) => {
       // Add rooms to the map.
       new mapboxgl.Marker({ color: this.generateRandomColor() })
         .setLngLat([loc.lt[1], loc.lt[0]])
@@ -122,33 +71,32 @@ export class AppComponent implements OnInit {
     });
   }
 
-  public back(): void {
-    if (this.selected <= 0) return;
-    this.selected--;
-    this.fly();
+  public tabChanged(events: any): void {
+    if (events.index == this.indexSelected) return;
+    this.indexSelected = events.index;
+    const nextElement = this.headers[this.indexSelected];
+    this.flyTo(nextElement.lt)
   }
 
-  public next(): void {
-    if (this.selected >= this.locations.length - 1) return;
-    this.selected++;
-    this.fly();
-  }
+  // p-tabview - nav - content
 
   public moving: boolean = false;
-  private fly() {
+  public flyTo(lt: [number, number]) {
     this.moving = true;
     this.map.flyTo({
       center: [
-        this.locations[this.selected].lt[1],
-        this.locations[this.selected].lt[0],
+        lt[1],
+        lt[0],
       ],
       essential: true,
-      speed: 1.3,
+      speed: 1.4,
       curve: 2.2,
     });
     let flag: boolean = false;
     this.map.on('moveend', () => {
-      if (!flag) this.moving = false;
+      if (!flag) {
+        this.moving = false;
+      }
       flag = true;
     });
   }

@@ -24,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SantiusteComponent } from './santiuste/santiuste.component';
 import { Madrid3Component } from './madrid3/madrid3.component';
 import { FinalComponent } from './final/final.component';
+import { TabViewModule } from 'primeng/tabview';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { FinalComponent } from './final/final.component';
     SantiusteComponent,
     Madrid3Component,
     FinalComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -52,8 +54,9 @@ import { FinalComponent } from './final/final.component';
     ButtonModule,
     DialogModule,
     TooltipModule,
+    TabViewModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
