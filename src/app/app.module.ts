@@ -3,12 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { IntroComponent } from './intro/intro.component';
-import { SegoviaComponent } from './segovia/segovia.component';
+import { EducationComponent } from './education/education.component';
 import { DublinComponent } from './dublin/dublin.component';
-import { IowaComponent } from './iowa/iowa.component';
-import { Madrid1Component } from './madrid1/madrid1.component';
 import { RusiaComponent } from './rusia/rusia.component';
-import { Madrid2Component } from './madrid2/madrid2.component';
 import { MaltaComponent } from './malta/malta.component';
 import { VeneciaComponent } from './venecia/venecia.component';
 import { SueciaComponent } from './suecia/suecia.component';
@@ -22,7 +19,6 @@ import { DialogModule } from 'primeng/dialog';
 import { TooltipModule } from 'primeng/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SantiusteComponent } from './santiuste/santiuste.component';
-import { Madrid3Component } from './madrid3/madrid3.component';
 import { FinalComponent } from './final/final.component';
 import { TabViewModule } from 'primeng/tabview';
 
@@ -30,12 +26,9 @@ import { TabViewModule } from 'primeng/tabview';
   declarations: [
     AppComponent,
     IntroComponent,
-    SegoviaComponent,
+    EducationComponent,
     DublinComponent,
-    IowaComponent,
-    Madrid1Component,
     RusiaComponent,
-    Madrid2Component,
     MaltaComponent,
     VeneciaComponent,
     SueciaComponent,
@@ -44,7 +37,6 @@ import { TabViewModule } from 'primeng/tabview';
     CorunaComponent,
     ForliComponent,
     SantiusteComponent,
-    Madrid3Component,
     FinalComponent,
 
   ],
