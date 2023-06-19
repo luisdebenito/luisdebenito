@@ -10044,7 +10044,7 @@
               consts: [
                 [
                   "src",
-                  "../..luisdebenito/assets/fields.jpeg",
+                  "../../luisdebenito/assets/fields.jpeg",
                   1,
                   "img",
                   "rounded",
@@ -10073,8 +10073,8 @@
                   "href",
                   "https://www.twitter.com/luisbq_/",
                 ],
-                ["src", "../..luisdebenito/assets/segovia.jpg", 1, "img"],
-                ["src", "../..luisdebenito/assets/segovia1.jpg", 1, "img"],
+                ["src", "../../luisdebenito/assets/segovia.jpg", 1, "img"],
+                ["src", "../../luisdebenito/assets/segovia1.jpg", 1, "img"],
               ],
               template: function (t, s) {
                 1 & t &&
@@ -10158,10 +10158,10 @@
               decls: 25,
               vars: 0,
               consts: [
-                ["src", "../..luisdebenito/assets/uni1.jpg", 1, "img"],
-                ["src", "../..luisdebenito/assets/unitenis.jpg", 1, "img"],
-                ["src", "../..luisdebenito/assets/malt.jpg", 1, "img"],
-                ["src", "../..luisdebenito/assets/iowa.jpg", 1, "img"],
+                ["src", "../../luisdebenito/assets/uni1.jpg", 1, "img"],
+                ["src", "../../luisdebenito/assets/unitenis.jpg", 1, "img"],
+                ["src", "../../luisdebenito/assets/malt.jpg", 1, "img"],
+                ["src", "../../luisdebenito/assets/iowa.jpg", 1, "img"],
               ],
               template: function (t, s) {
                 1 & t &&
@@ -47148,15 +47148,13 @@
                 for (const v in g) {
                   const b = this._sourceCaches[v];
                   g[v] !== b.used &&
-                    b
-                      .getSource()
-                      .fire(
-                        new d.Event("data", {
-                          sourceDataType: "visibility",
-                          dataType: "source",
-                          sourceId: b.getSource().id,
-                        })
-                      );
+                    b.getSource().fire(
+                      new d.Event("data", {
+                        sourceDataType: "visibility",
+                        dataType: "source",
+                        sourceId: b.getSource().id,
+                      })
+                    );
                 }
                 this.light.recalculate(a),
                   this.terrain && this.terrain.recalculate(a),
@@ -52817,27 +52815,25 @@
                           (R = b.colorRampTexture =
                             new d.Texture(D, b.colorRamp, I.RGBA)),
                           R.bind(I.LINEAR, I.CLAMP_TO_EDGE),
-                          v
-                            .useProgram("heatmapTexture")
-                            .draw(
-                              D,
-                              I.TRIANGLES,
-                              d.DepthMode.disabled,
-                              d.StencilMode.disabled,
-                              v.colorModeForRenderPass(),
-                              d.CullFaceMode.disabled,
-                              {
-                                u_image: 0,
-                                u_color_ramp: 1,
-                                u_opacity: b.paint.get("heatmap-opacity"),
-                              },
-                              b.id,
-                              v.viewportBuffer,
-                              v.quadTriangleIndexBuffer,
-                              v.viewportSegments,
-                              b.paint,
-                              v.transform.zoom
-                            );
+                          v.useProgram("heatmapTexture").draw(
+                            D,
+                            I.TRIANGLES,
+                            d.DepthMode.disabled,
+                            d.StencilMode.disabled,
+                            v.colorModeForRenderPass(),
+                            d.CullFaceMode.disabled,
+                            {
+                              u_image: 0,
+                              u_color_ramp: 1,
+                              u_opacity: b.paint.get("heatmap-opacity"),
+                            },
+                            b.id,
+                            v.viewportBuffer,
+                            v.quadTriangleIndexBuffer,
+                            v.viewportSegments,
+                            b.paint,
+                            v.transform.zoom
+                          );
                       })(f, u));
               },
               line: function (f, a, u, g) {
