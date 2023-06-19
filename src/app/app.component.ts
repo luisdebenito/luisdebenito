@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   title = 'ostoo';
   private mapbox = mapboxgl as typeof mapboxgl;
   private map!: mapboxgl.Map;
-  private style: string = 'mapbox://styles/mapbox/navigation-night-v1';
+  private style: string = 'mapbox://styles/mapbox/light-v11';
 
   constructor() {
     this.mapbox.accessToken = environment.mapBoxToken;
@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
     this.initMap();
     setTimeout(() => {
       this.flyTo(this.headers[0].lt)
-    }, 300)
+    }, 50)
   }
 
 
@@ -65,9 +65,14 @@ export class AppComponent implements OnInit {
   private drawLocations(): void {
     this.headers.forEach((loc) => {
       // Add rooms to the map.
-      new mapboxgl.Marker({ color: this.generateRandomColor() })
-        .setLngLat([loc.lt[1], loc.lt[0]])
-        .addTo(this.map);
+      const markerElement = document.createElement('div');
+      markerElement.className = 'custom-marker';
+      markerElement.innerHTML = ' <i class="pi pi-' + loc.icon + '"></i> <p>' + loc.name + '</p>';
+
+
+      new mapboxgl.Marker({ color: this.generateRandomColor(), element: markerElement })
+        .setLngLat([loc.lt[1], loc.lt[0]]).addTo(this.map);
+
     });
   }
 
