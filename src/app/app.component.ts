@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { environment } from '@env/environment';
 import * as mapboxgl from 'mapbox-gl';
-import { IntroComponent } from './intro/intro.component';
 
 @Component({
   selector: 'app-root',
@@ -18,25 +17,52 @@ export class AppComponent implements OnInit {
     this.mapbox.accessToken = environment.mapBoxToken;
   }
 
+  @ViewChild('cnt') container!: ElementRef;
 
   public indexSelected: number = 0;
-  public headers: { name: string, icon: string, lt: [number, number] }[] = [{
-    name: "Info", icon: "id-card", lt: [41.15907, -4.570329] //santiuste
-  }, {
-    name: "Education", icon: "user-plus", lt: [40.429561, -3.713232] //madrid
-  }, {
-    name: "Experience", icon: "star", lt: [45.508237, 12.267826] //venecia
-  }, {
-    name: "Music", icon: "volume-up", lt: [59.333226, 18.06828] //suecia
-  }, {
-    name: "Trips", icon: "map", lt: [59.891037, 30.319812]//rusia
-  }, {
-    name: "Code", icon: "code", lt: [49.373385, 10.180248] //rothenburg
-  }, {
-    name: "Sports", icon: "flag", lt: [40.951807, -4.105901]//segovia
-  }, {
-    name: "Misc", icon: "globe", lt: [17.469947, 78.422454]//india
-  }]
+  public headers: { name: string; icon: string; lt: [number, number] }[] = [
+    {
+      name: 'Info',
+      icon: 'id-card',
+      lt: [41.15907, -4.570329], //santiuste
+    },
+    {
+      name: 'Education',
+      icon: 'user-plus',
+      lt: [40.429561, -3.713232], //madrid
+    },
+    {
+      name: 'Experience',
+      icon: 'star',
+      lt: [45.508237, 12.267826], //venecia
+    },
+    {
+      name: 'Music',
+      icon: 'volume-up',
+
+      lt: [59.891037, 30.319812], //rusia
+    },
+    {
+      name: 'Trips',
+      icon: 'map',
+      lt: [17.469947, 78.422454], //india
+    },
+    {
+      name: 'Code',
+      icon: 'code',
+      lt: [42.026967, -93.629812], //iowa
+    },
+    {
+      name: 'Sports',
+      icon: 'flag',
+      lt: [49.373385, 10.180248], //rothenburg
+    },
+    {
+      name: 'Misc',
+      icon: 'globe',
+      lt: [59.333226, 18.06828], //suecia
+    },
+  ];
 
   ngOnInit(): void {
     this.map = new mapboxgl.Map({
@@ -48,10 +74,9 @@ export class AppComponent implements OnInit {
     });
     this.initMap();
     setTimeout(() => {
-      this.flyTo(this.headers[0].lt)
-    }, 50)
+      this.flyTo(this.headers[0].lt);
+    }, 50);
   }
-
 
   private initMap(): void {
     this.drawLocations();
@@ -61,18 +86,20 @@ export class AppComponent implements OnInit {
     return '#' + Math.floor(Math.random() * 16777215).toString(16);
   }
 
-
   private drawLocations(): void {
     this.headers.forEach((loc) => {
       // Add rooms to the map.
       const markerElement = document.createElement('div');
       markerElement.className = 'custom-marker';
-      markerElement.innerHTML = ' <i class="pi pi-' + loc.icon + '"></i> <p>' + loc.name + '</p>';
+      markerElement.innerHTML =
+        ' <i class="pi pi-' + loc.icon + '"></i> <p>' + loc.name + '</p>';
 
-
-      new mapboxgl.Marker({ color: this.generateRandomColor(), element: markerElement })
-        .setLngLat([loc.lt[1], loc.lt[0]]).addTo(this.map);
-
+      new mapboxgl.Marker({
+        color: this.generateRandomColor(),
+        element: markerElement,
+      })
+        .setLngLat([loc.lt[1], loc.lt[0]])
+        .addTo(this.map);
     });
   }
 
@@ -80,7 +107,7 @@ export class AppComponent implements OnInit {
     if (events.index == this.indexSelected) return;
     this.indexSelected = events.index;
     const nextElement = this.headers[this.indexSelected];
-    this.flyTo(nextElement.lt)
+    this.flyTo(nextElement.lt);
   }
 
   // p-tabview - nav - content
@@ -89,10 +116,7 @@ export class AppComponent implements OnInit {
   public flyTo(lt: [number, number]) {
     this.moving = true;
     this.map.flyTo({
-      center: [
-        lt[1],
-        lt[0],
-      ],
+      center: [lt[1], lt[0]],
       essential: true,
       speed: 1.4,
       curve: 2.2,
@@ -101,6 +125,9 @@ export class AppComponent implements OnInit {
     this.map.on('moveend', () => {
       if (!flag) {
         this.moving = false;
+        setTimeout(() => {
+          this.container.nativeElement.scrollTop = 0;
+        }, 5);
       }
       flag = true;
     });

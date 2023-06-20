@@ -1,10 +1,16 @@
 <div id="map" class="container"></div>
 
 <div class="modal" id="mdl" [ngClass]="moving ? 'transp' : ''">
-  <div class="container">
+  <div #cnt class="container">
     <div class="inContainer">
       <app-intro *ngIf="indexSelected == 0"></app-intro>
       <app-education *ngIf="indexSelected == 1"></app-education>
+      <app-experience *ngIf="indexSelected == 2"></app-experience>
+      <app-music *ngIf="indexSelected == 3"></app-music>
+      <app-trip *ngIf="indexSelected == 4"></app-trip>
+      <app-code *ngIf="indexSelected == 5"></app-code>
+      <app-sport *ngIf="indexSelected == 6"></app-sport>
+      <app-final *ngIf="indexSelected == 7"></app-final>
     </div>
   </div>
   <div class="footer">

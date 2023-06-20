@@ -4,40 +4,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { IntroComponent } from './intro/intro.component';
 import { EducationComponent } from './education/education.component';
-import { DublinComponent } from './dublin/dublin.component';
-import { RusiaComponent } from './rusia/rusia.component';
-import { MaltaComponent } from './malta/malta.component';
-import { VeneciaComponent } from './venecia/venecia.component';
-import { SueciaComponent } from './suecia/suecia.component';
-import { GermanyComponent } from './germany/germany.component';
-import { IndiaComponent } from './india/india.component';
-import { CorunaComponent } from './coruna/coruna.component';
-import { ForliComponent } from './forli/forli.component';
 
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { TooltipModule } from 'primeng/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SantiusteComponent } from './santiuste/santiuste.component';
-import { FinalComponent } from './final/final.component';
 import { TabViewModule } from 'primeng/tabview';
+import { ExperienceComponent } from './experience/experience.component';
+import { MusicComponent } from './music/music.component';
+import { TripComponent } from './trip/trip.component';
+import { CodeComponent } from './code/code.component';
+import { SportComponent } from './sport/sport.component';
+import { FinalComponent } from './misc/final.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IntroComponent,
     EducationComponent,
-    DublinComponent,
-    RusiaComponent,
-    MaltaComponent,
-    VeneciaComponent,
-    SueciaComponent,
-    GermanyComponent,
-    IndiaComponent,
-    CorunaComponent,
-    ForliComponent,
-    SantiusteComponent,
-    FinalComponent,
+    ExperienceComponent,
+    MusicComponent,
+    TripComponent,
+    CodeComponent,
+    SportComponent,
+    FinalComponent
 
   ],
   imports: [
