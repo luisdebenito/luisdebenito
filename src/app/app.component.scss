@@ -1,14 +1,6 @@
 .container {
   height: 100%;
 
-  .map {
-    height: 100%;
-  }
-
-  ::ng-deep .mapboxgl-control-container {
-    display: none;
-  }
-
   ::ng-deep .customRoom:hover {
     cursor: pointer;
   }
@@ -31,7 +23,7 @@
 
 ::ng-deep .p-tabview .p-tabview-nav li {
   border-top: 1px solid white;
-  background-color: #544008;
+  background-color: #5a7302;
 
   span.spantitle {
     margin: auto 10px;
@@ -39,8 +31,11 @@
 }
 
 ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
-  background-color: #e8fccf;
-  color: #544008;
+  background-color: #f2f2f2;
+  color: #3d3b35;
+}
+::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link i.pi {
+  color: #3d3b35;
 }
 
 ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
@@ -65,24 +60,10 @@
   text-decoration: none;
   overflow: hidden;
 }
-.addRoom {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  background-color: #3f51b5;
-  height: 70px;
-  width: 70px;
-  border-radius: 50%;
-}
-
-.addRoom:hover {
-  cursor: pointer;
-}
 
 .modal {
-  background-color: #544008;
-  color: #f0f7ee;
-  border: 5px solid #f0f7ee;
+  background-color: #f2f2f2;
+  color: #3d3b35;
   border-radius: 20px;
   height: 98%;
   position: fixed;
@@ -95,6 +76,9 @@
     position: absolute;
     bottom: 0;
     margin: auto;
+    i {
+      color: #f2f2f2;
+    }
   }
 
   .container {
@@ -138,23 +122,4 @@
     width: 68%;
     right: 16%;
   }
-}
-
-.transp {
-  display: none;
-}
-
-::ng-deep .custom-marker {
-  text-align: center;
-  p {
-    margin: 0px;
-  }
-  i {
-    font-size: 60px;
-  }
-  font-size: 20px;
-  background-color: #544008 !important;
-  border-radius: 20px;
-  padding: 18px;
-  color: #e8fccf;
 }

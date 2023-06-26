@@ -3,13 +3,21 @@ body,
 html {
   height: 100%;
   margin: 0px;
+  background-color: #f2f2f2;
 
   font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
     Ubuntu, sans-serif;
 }
 
 .img {
-  width: 100%;
+  width: 95%;
+  box-shadow: 10px 10px #f2c894;
+  margin: 10px;
+}
+
+h1,
+i {
+  color: #5a7302;
 }
 
 .p-dialog .p-dialog-header {
@@ -189,5 +197,5 @@ h1.shinny {
 
 a,
 a:visited {
-  color: black;
+  color: #5a7302;
 }

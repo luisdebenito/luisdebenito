@@ -1,26 +1,26 @@
-<div id="map" class="container"></div>
-
-<div class="modal" id="mdl" [ngClass]="moving ? 'transp' : ''">
-  <div #cnt class="container">
-    <div class="inContainer">
-      <app-intro *ngIf="indexSelected == 0"></app-intro>
-      <app-education *ngIf="indexSelected == 1"></app-education>
-      <app-experience *ngIf="indexSelected == 2"></app-experience>
-      <app-music *ngIf="indexSelected == 3"></app-music>
-      <app-trip *ngIf="indexSelected == 4"></app-trip>
-      <app-code *ngIf="indexSelected == 5"></app-code>
-      <app-sport *ngIf="indexSelected == 6"></app-sport>
-      <app-final *ngIf="indexSelected == 7"></app-final>
+<div class="presentation">
+  <div class="modal" id="mdl">
+    <div #cnt class="container">
+      <div class="inContainer">
+        <app-intro *ngIf="indexSelected == 0"></app-intro>
+        <app-education *ngIf="indexSelected == 1"></app-education>
+        <app-experience *ngIf="indexSelected == 2"></app-experience>
+        <app-music *ngIf="indexSelected == 3"></app-music>
+        <app-trip *ngIf="indexSelected == 4"></app-trip>
+        <app-code *ngIf="indexSelected == 5"></app-code>
+        <app-sport *ngIf="indexSelected == 6"></app-sport>
+        <app-final *ngIf="indexSelected == 7"></app-final>
+      </div>
     </div>
-  </div>
-  <div class="footer">
-    <p-tabView (onChange)="tabChanged($event)" [activeIndex]="indexSelected">
-      <p-tabPanel *ngFor="let item of headers">
-        <ng-template pTemplate="header">
-          <i class="pi pi-{{ item.icon }}"></i>
-          <span class="spantitle">{{ item.name }}</span>
-        </ng-template>
-      </p-tabPanel>
-    </p-tabView>
+    <div class="footer">
+      <p-tabView (onChange)="tabChanged($event)" [activeIndex]="indexSelected">
+        <p-tabPanel *ngFor="let item of headers">
+          <ng-template pTemplate="header">
+            <i class="pi pi-{{ item.icon }}"></i>
+            <span class="spantitle">{{ item.name }}</span>
+          </ng-template>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
   </div>
 </div>
