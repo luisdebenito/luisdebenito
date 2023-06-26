@@ -10,9 +10,6 @@ MIT
 @angular/platform-browser
 MIT
 
-mapbox-gl
-SEE LICENSE IN LICENSE.txt
-
 primeicons
 MIT
 MIT License
