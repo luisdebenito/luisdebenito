@@ -6,10 +6,8 @@ import { IntroComponent } from './intro/intro.component';
 import { EducationComponent } from './education/education.component';
 
 import { ButtonModule } from 'primeng/button';
-import { DialogModule } from 'primeng/dialog';
-import { TooltipModule } from 'primeng/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TabViewModule } from 'primeng/tabview';
+import { DockModule } from 'primeng/dock';
 import { ExperienceComponent } from './experience/experience.component';
 import { MusicComponent } from './music/music.component';
 import { TripComponent } from './trip/trip.component';
@@ -27,18 +25,10 @@ import { FinalComponent } from './misc/final.component';
     TripComponent,
     CodeComponent,
     SportComponent,
-    FinalComponent
-
+    FinalComponent,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    ButtonModule,
-    DialogModule,
-    TooltipModule,
-    TabViewModule
-  ],
+  imports: [BrowserModule, BrowserAnimationsModule, ButtonModule, DockModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

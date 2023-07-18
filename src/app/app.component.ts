@@ -5,88 +5,61 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'Luis de Benito';
 
-  constructor() { }
+  constructor() {}
 
   @ViewChild('cnt') container!: ElementRef;
 
   public indexSelected: number = 0;
-  public headers: { name: string; icon: string; top: number; right: number }[] =
-    [
-      {
-        name: 'Info',
-        icon: 'id-card',
+  public headers: { name: string; icon: string; i: number }[] = [
+    {
+      name: 'Info',
+      icon: 'id-card',
+      i: 0,
+    },
+    {
+      name: 'Education',
+      icon: 'user-plus',
+      i: 1,
+    },
+    {
+      name: 'Experience',
+      icon: 'star',
+      i: 2,
+    },
+    {
+      name: 'Music',
+      icon: 'volume-up',
+      i: 3,
+    },
+    {
+      name: 'Trips',
+      icon: 'map',
+      i: 4,
+    },
+    {
+      name: 'Code',
+      icon: 'code',
+      i: 5,
+    },
+    {
+      name: 'Sports',
+      icon: 'flag',
+      i: 6,
+    },
+    {
+      name: 'Misc',
+      icon: 'globe',
+      i: 7,
+    },
+  ];
 
-        top: 0,
-        right: 0,
-      },
-      {
-        name: 'Education',
-        icon: 'user-plus',
-
-        top: 0,
-        right: 0,
-      },
-      {
-        name: 'Experience',
-        icon: 'star',
-
-        top: 0,
-        right: 0,
-      },
-      {
-        name: 'Music',
-        icon: 'volume-up',
-
-        top: 0,
-        right: 0,
-      },
-      {
-        name: 'Trips',
-        icon: 'map',
-
-        top: 0,
-        right: 0,
-      },
-      {
-        name: 'Code',
-        icon: 'code',
-
-        top: 0,
-        right: 0,
-      },
-      {
-        name: 'Sports',
-        icon: 'flag',
-
-        top: 0,
-        right: 0,
-      },
-      {
-        name: 'Misc',
-        icon: 'globe',
-
-        top: 0,
-        right: 0,
-      },
-    ];
-
-  ngOnInit(): void {
-    this.headers.forEach((it, index: number) => {
-      const angle: number = Math.floor((360 / this.headers.length) * index);
-      let x = Math.round(150 * Math.cos(angle));
-      let y = Math.round(150 * Math.sin(angle));
-      it.right = x + 200;
-      it.top = y + 200;
-    });
-  }
-
-  public moving: boolean = false;
-  public tabChanged(events: any): void {
-    if (events.index == this.indexSelected) return;
-    this.indexSelected = events.index;
-    const nextElement = this.headers[this.indexSelected];
+  public tabChanged(index: number): void {
+    setTimeout(() => {
+      this.container.nativeElement.scrollTop = 0;
+    }, 10);
+    this.indexSelected = index;
   }
 }

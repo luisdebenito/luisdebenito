@@ -65,26 +65,15 @@
   background-color: #f2f2f2;
   color: #3d3b35;
   border-radius: 20px;
-  height: 98%;
+  height: 85%;
   position: fixed;
   z-index: 800;
-  top: 1%;
-
-  .footer {
-    width: 100%;
-    height: 7%;
-    position: absolute;
-    bottom: 0;
-    margin: auto;
-    i {
-      color: #f2f2f2;
-    }
-  }
+  top: 14%;
 
   .container {
     width: 100%;
-    height: 90%;
-    max-height: 90%;
+    height: 100%;
+    max-height: 100%;
     overflow-y: auto;
     position: absolute;
     top: 0;
@@ -108,6 +97,16 @@
     width: 95%;
     left: 1.5%;
   }
+
+  .large {
+    font-size: 22px;
+  }
+
+  .larger {
+    width: 35px;
+    height: 35px;
+    margin-top: 5px;
+  }
 }
 @media (min-width: 800px) {
   ::ng-deep .p-tabview .p-tabview-nav li {
@@ -122,4 +121,25 @@
     width: 68%;
     right: 16%;
   }
+
+  .larger {
+    width: 60px;
+    height: 60px;
+    margin-top: 10px;
+  }
+  .large {
+    font-size: 30px;
+  }
+}
+
+.larger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.larger:hover {
+  cursor: pointer;
+  background-color: rgba($color: #f2c894, $alpha: 1);
 }

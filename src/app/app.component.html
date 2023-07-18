@@ -12,15 +12,13 @@
         <app-final *ngIf="indexSelected == 7"></app-final>
       </div>
     </div>
-    <div class="footer">
-      <p-tabView (onChange)="tabChanged($event)" [activeIndex]="indexSelected">
-        <p-tabPanel *ngFor="let item of headers">
-          <ng-template pTemplate="header">
-            <i class="pi pi-{{ item.icon }}"></i>
-            <span class="spantitle">{{ item.name }}</span>
-          </ng-template>
-        </p-tabPanel>
-      </p-tabView>
-    </div>
   </div>
 </div>
+
+<p-dock [model]="headers" [position]="'top'">
+  <ng-template pTemplate="item" let-item>
+    <div class="larger" (click)="tabChanged(item.i)">
+      <i class="pi pi-{{ item.icon }} large"></i>
+    </div>
+  </ng-template>
+</p-dock>
