@@ -143,3 +143,13 @@
   cursor: pointer;
   background-color: rgba($color: #f2c894, $alpha: 1);
 }
+
+/* Customize the scrollbar track */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba($color: #5a7302, $alpha: 0.7);
+  border-radius: 10px;
+}
