@@ -1,32 +1,14 @@
 <h1>Music</h1>
 <p>
-  We can say it is my biggest home hobby, listening, producing and mixing music
-</p>
-
-<div class="centered">
-  <p>
-    <i class="pi pi-youtube"></i>
-    <a target="_blank" href="https://www.youtube.com/@luisbq8045"
-      >Luisbq, producing music channel</a
-    >
-  </p>
-
-  <p>
-    <i class="pi pi-youtube"></i>
-    <a target="_blank" href="https://www.youtube.com/@bq_tossing_beats"
-      >Bq Tossing Beats, mixing music channel</a
-    >
-  </p>
-</div>
-
-<p>
-  I have played piano and guitar for 15 years, here is a song I made and played:
+  We can say it is my biggest home hobby, listening, producing and mixing music,
+  I have played piano and guitar for 15 years:
 </p>
 
 <iframe
+  *ngFor="let item of videourls"
   width="560"
   height="315"
-  src="https://www.youtube.com/embed/HiON7D8QrsA"
+  [src]="item"
   title="Stenaten"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

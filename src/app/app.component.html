@@ -2,23 +2,15 @@
   <div class="modal" id="mdl">
     <div #cnt class="container">
       <div class="inContainer">
-        <app-intro *ngIf="indexSelected == 0"></app-intro>
-        <app-education *ngIf="indexSelected == 1"></app-education>
-        <app-experience *ngIf="indexSelected == 2"></app-experience>
-        <app-music *ngIf="indexSelected == 3"></app-music>
-        <app-trip *ngIf="indexSelected == 4"></app-trip>
-        <app-code *ngIf="indexSelected == 5"></app-code>
-        <app-sport *ngIf="indexSelected == 6"></app-sport>
-        <app-final *ngIf="indexSelected == 7"></app-final>
+        <app-intro></app-intro>
+        <app-education></app-education>
+        <app-experience></app-experience>
+        <app-code></app-code>
+        <app-music></app-music>
+        <app-trip></app-trip>
+        <app-sport></app-sport>
+        <app-final></app-final>
       </div>
     </div>
   </div>
 </div>
-
-<p-dock [model]="headers" [position]="'top'">
-  <ng-template pTemplate="item" let-item>
-    <div class="larger" (click)="tabChanged(item.i)">
-      <i class="pi pi-{{ item.icon }} large"></i>
-    </div>
-  </ng-template>
-</p-dock>
