@@ -10,56 +10,18 @@ export class AppComponent {
 
   constructor() {}
 
-  @ViewChild('cnt') container!: ElementRef;
+  @ViewChild('overlayMenu') overlayMenu!: ElementRef;
+  isMenuOpen = false;
 
-  public indexSelected: number = 0;
-  public headers: { name: string; icon: string; i: number }[] = [
-    {
-      name: 'Info',
-      icon: 'id-card',
-      i: 0,
-    },
-    {
-      name: 'Education',
-      icon: 'user-plus',
-      i: 1,
-    },
-    {
-      name: 'Experience',
-      icon: 'star',
-      i: 2,
-    },
-    {
-      name: 'Music',
-      icon: 'volume-up',
-      i: 3,
-    },
-    {
-      name: 'Trips',
-      icon: 'map',
-      i: 4,
-    },
-    {
-      name: 'Code',
-      icon: 'code',
-      i: 5,
-    },
-    {
-      name: 'Sports',
-      icon: 'flag',
-      i: 6,
-    },
-    {
-      name: 'Misc',
-      icon: 'globe',
-      i: 7,
-    },
-  ];
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
-  public tabChanged(index: number): void {
-    setTimeout(() => {
-      this.container.nativeElement.scrollTop = 0;
-    }, 10);
-    this.indexSelected = index;
+  navigateToSection(section: string) {
+    const element = document.getElementById(section.toLowerCase());
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    this.toggleMenu();
   }
 }

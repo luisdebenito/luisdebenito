@@ -2,15 +2,56 @@
   <div class="modal" id="mdl">
     <div #cnt class="container">
       <div class="inContainer">
-        <app-intro></app-intro>
-        <app-education></app-education>
-        <app-experience></app-experience>
-        <app-code></app-code>
-        <app-music></app-music>
-        <app-trip></app-trip>
-        <app-sport></app-sport>
-        <app-final></app-final>
+        <app-intro id="intro"></app-intro>
+        <app-education id="education"></app-education>
+        <app-experience id="experience"></app-experience>
+        <app-code id="code"></app-code>
+        <app-music id="music"></app-music>
+        <app-trip id="trip"></app-trip>
+        <app-sport id="sport"></app-sport>
+        <app-final id="misc"></app-final>
       </div>
+    </div>
+  </div>
+
+  <button
+    pButton
+    class="pi pi-bars menu_button"
+    (click)="toggleMenu()"
+  ></button>
+  <div
+    class="menu-overlay"
+    #overlayMenu
+    [class.active]="isMenuOpen"
+    (click)="toggleMenu()"
+  >
+    <div class="menu" (click)="$event.stopPropagation()">
+      <ul>
+        <li (click)="navigateToSection('intro')">
+          <i class="pi pi-id-card"></i>Intro
+        </li>
+        <li (click)="navigateToSection('education')">
+          <i class="pi pi-user-plus"></i>Education
+        </li>
+        <li (click)="navigateToSection('experience')">
+          <i class="pi pi-star"></i>Experience
+        </li>
+        <li (click)="navigateToSection('code')">
+          <i class="pi pi-code"></i>Code
+        </li>
+        <li (click)="navigateToSection('music')">
+          <i class="pi pi-volume-up"></i>Music
+        </li>
+        <li (click)="navigateToSection('trip')">
+          <i class="pi pi-map"></i>Trips
+        </li>
+        <li (click)="navigateToSection('sport')">
+          <i class="pi pi-flag"></i>Sports
+        </li>
+        <li (click)="navigateToSection('misc')">
+          <i class="pi pi-globe"></i>Miscellaneous
+        </li>
+      </ul>
     </div>
   </div>
 </div>
